@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO / accessibility meta -->
+  <meta name="description" content="Save Our Wildlife — a conservation campaign dedicated to protecting endangered species and their natural habitats." />
+  <meta name="theme-color" content="#1a3325" />
+
+  <title>Save Our Wildlife</title>
+
+  <!-- External stylesheet (separate file — separation of content) -->
+  <link rel="stylesheet" href="wildlife.css" />
+</head>
+
+<body>
+
+  <!-- Skip navigation link for screen-reader / keyboard users -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="page-wrapper">
+
+    <!-- ══ HEADER ══════════════════════════════════════════════ -->
+    <header class="site-header" role="banner">
+      <span class="org-label">Conservation Campaign</span>
+      <!-- Requirement: heading "Save Our Wildlife" -->
+      <h1 class="site-title">
+        Save Our <span class="accent">Wildlife</span>
+      </h1>
+      <p class="tagline">Every species matters. Every action counts.</p>
+    </header>
+
+    <!-- ══ MAIN ════════════════════════════════════════════════ -->
+    <main id="main-content">
+
+      <!-- ── Video section ───────────────────────────────────── -->
+      <section
+        class="video-section"
+        aria-labelledby="video-heading"
+      >
+        <h2 id="video-heading" class="sr-only">Wildlife Video</h2>
+
+        <!-- Responsive 16:9 wrapper; toggled by JS -->
+        <div class="video-wrapper" id="videoWrapper">
+          <!--
+            Requirement: embed wildlife.mp4 with playback controls
+            - controls    → native browser controls (play, pause, volume, fullscreen)
+            - preload     → hint to browser to load metadata only
+            - aria-label  → descriptive label for screen readers
+          -->
+          <video
+            id="wildlifeVideo"
+            controls
+            preload="metadata"
+            aria-label="Wildlife conservation video showing animals in their natural habitats"
+          >
+            <source src="wildlife.mp4" type="video/mp4" />
+            <!-- Accessibility fallback: descriptive text if video cannot play -->
+            <p>
+              Your browser does not support HTML5 video.
+              <a href="wildlife.mp4" download>Download the wildlife video</a> instead.
+            </p>
+          </video>
+        </div>
+
+        <!-- Controls bar with toggle button -->
+        <div class="video-controls">
+          <!--
+            Requirement: button that hides the video, or plays it if not playing
+            - aria-pressed tracks toggle state
+            - aria-label   gives screen readers a clear description
+            - id           referenced by JS
+          -->
+          <button
+            id="toggleBtn"
+            class="btn-toggle"
+            type="button"
+            aria-pressed="false"
+            aria-label="Play the wildlife video"
+            aria-controls="videoWrapper"
+          >
+            <span class="icon" aria-hidden="true">▶</span>
+            Play Video
+          </button>
+
+          <!-- Live region announces state changes to screen readers -->
+          <span
+            id="statusText"
+            class="status-text"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            Paused
+          </span>
+        </div>
+      </section>
+
+      <!-- ── Description ─────────────────────────────────────── -->
+      <!--
+        Requirement: short description below the video
+      -->
+      <section class="description-card" aria-label="About this campaign">
+        <h2>About This Campaign</h2>
+        <p>
+          Across the globe, thousands of species teeter on the edge of extinction — driven out
+          by habitat loss, climate change, and illegal trade. Our wildlife video captures these
+          animals in their natural habitats, reminding us what is at stake.
+          Join us in demanding stronger protections, supporting anti-poaching efforts, and
+          restoring the wild spaces every creature calls home.
+          <strong>Together, we can turn the tide.</strong>
+        </p>
+      </section>
+
+      <!-- ── Stats ───────────────────────────────────────────── -->
+      <section class="stats" aria-label="Conservation statistics">
+        <div class="stat-box">
+          <span class="stat-num" aria-label="44,000 species">44 K</span>
+          <span class="stat-label">Species threatened</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num" aria-label="80 percent">80%</span>
+          <span class="stat-label">Habitat lost to development</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num" aria-label="1 million">1 M+</span>
+          <span class="stat-label">Acres protected so far</span>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ══ FOOTER ══════════════════════════════════════════════ -->
+    <footer class="site-footer" role="contentinfo">
+      <p>&copy; 2026 Save Our Wildlife Conservation. All rights reserved.</p>
+    </footer>
+
+  </div><!-- /.page-wrapper -->
+
+  <!-- External JS (separate file — separation of content) -->
+  <script src="wildlife.js"></script>
+
+</body>
+</html>
