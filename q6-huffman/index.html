@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q6 — Huffman Coding</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <a class="back-link" href="../index.html">&#8592; Back to Index</a>
+
+    <div class="page-header">
+      <div class="badge">Question 6 &mdash; 5 Points</div>
+      <h1>Huffman Coding</h1>
+      <p class="subtitle">Build a Huffman tree for symbols A, B, C, D</p>
+    </div>
+
+    <!-- Problem -->
+    <div class="card">
+      <div class="card-label">Problem Statement</div>
+      <p>Construct a Huffman code for the source below. Show the merging steps or tree,
+         assign binary codewords, compute the average code length, and compare it with a
+         fixed-length binary code for four symbols.</p>
+      <table style="margin-top:1rem; max-width:340px">
+        <thead><tr><th>Symbol</th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead>
+        <tbody><tr><td>Frequency</td><td>8</td><td>4</td><td>2</td><td>2</td></tr></tbody>
+      </table>
+    </div>
+
+    <!-- Concepts -->
+    <div class="card">
+      <div class="card-label">Key Concepts</div>
+      <ul>
+        <li><strong>Huffman coding</strong> — greedy entropy coding; assigns shorter codewords to more frequent symbols.</li>
+        <li><strong>Prefix-free</strong> — no codeword is a prefix of another, enabling unambiguous decoding.</li>
+        <li><strong>Average length</strong> — Σ (probability × code length) over all symbols.</li>
+        <li><strong>Fixed-length code</strong> — for N symbols needs ⌈log₂ N⌉ bits; here N=4 → 2 bits.</li>
+      </ul>
+    </div>
+
+    <!-- Merging steps -->
+    <div class="card">
+      <div class="card-label">Step 1 — Merging Steps</div>
+
+      <p style="color:var(--muted); margin-bottom:.9rem;">Total symbols: 8+4+2+2 = <strong>16</strong></p>
+
+      <table>
+        <thead><tr><th>Pass</th><th>Action</th><th>Remaining nodes (freq)</th></tr></thead>
+        <tbody>
+          <tr><td>Start</td><td>—</td><td>A=8, B=4, C=2, D=2</td></tr>
+          <tr><td>1</td><td>Merge C(2) + D(2) → CD(4)</td><td>A=8, B=4, CD=4</td></tr>
+          <tr><td>2</td><td>Merge B(4) + CD(4) → BCD(8)</td><td>A=8, BCD=8</td></tr>
+          <tr><td>3</td><td>Merge A(8) + BCD(8) → Root(16)</td><td>Root=16</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tree -->
+    <div class="card">
+      <div class="card-label">Step 2 — Huffman Tree</div>
+      <div class="tree">
+              Root (16)
+             /         \
+          A (8)        BCD (8)
+          [0]          [1]
+                      /      \
+                   B (4)    CD (4)
+                   [10]      [11]
+                            /    \
+                         C (2)  D (2)
+                         [110]  [111]
+      </div>
+      <p style="color:var(--muted); font-size:.88rem; margin-top:.75rem;">
+        Edge labels: left branch = <strong>0</strong>, right branch = <strong>1</strong>.
+        Codeword = path from Root to leaf.
+      </p>
+    </div>
+
+    <!-- Codewords -->
+    <div class="card">
+      <div class="card-label">Step 3 — Assigned Codewords</div>
+      <table>
+        <thead><tr><th>Symbol</th><th>Frequency</th><th>Probability</th><th>Code</th><th>Length</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>8</td><td>8/16 = 0.50</td><td class="hl">0</td><td>1 bit</td></tr>
+          <tr><td>B</td><td>4</td><td>4/16 = 0.25</td><td class="hl">10</td><td>2 bits</td></tr>
+          <tr><td>C</td><td>2</td><td>2/16 = 0.125</td><td class="hl">110</td><td>3 bits</td></tr>
+          <tr><td>D</td><td>2</td><td>2/16 = 0.125</td><td class="hl">111</td><td>3 bits</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Average length -->
+    <div class="card">
+      <div class="card-label">Step 4 — Average Code Length</div>
+      <div class="formula">
+L̄ = Σ P(x) × length(x)
+   = 0.50×1  +  0.25×2  +  0.125×3  +  0.125×3
+   = 0.50  +  0.50  +  0.375  +  0.375
+   = 1.75 bits/symbol
+      </div>
+      <div class="result">&#10003; Average Huffman Length = 1.75 bits/symbol</div>
+    </div>
+
+    <!-- Comparison -->
+    <div class="card">
+      <div class="card-label">Step 5 — Comparison with Fixed-Length Code</div>
+      <table>
+        <thead><tr><th>Metric</th><th>Huffman</th><th>Fixed-Length</th></tr></thead>
+        <tbody>
+          <tr><td>Bits per symbol</td><td class="hl">1.75</td><td>2.00</td></tr>
+          <tr><td>Bits saved per symbol</td><td colspan="2" class="hl">0.25 bits (12.5% reduction)</td></tr>
+          <tr><td>Bits for 16 symbols</td><td class="hl">28</td><td>32</td></tr>
+          <tr><td>Prefix-free?</td><td>Yes ✓</td><td>Yes ✓</td></tr>
+          <tr><td>Optimal for this source?</td><td>Yes ✓</td><td>No</td></tr>
+        </tbody>
+      </table>
+      <p style="color:var(--muted); font-size:.88rem; margin-top:.85rem;">
+        The Huffman code achieves a <strong>12.5% bit reduction</strong> over a fixed 2-bit code,
+        exploiting the skewed frequency distribution where A alone accounts for 50% of occurrences.
+      </p>
+    </div>
+
+    <div class="page-footer">
+      Multimedia Fundamentals &mdash; Q6 Huffman Coding &mdash;
+      <a href="../index.html" style="color:var(--accent)">Home</a>
+    </div>
+
+  </div>
+</body>
+</html>
