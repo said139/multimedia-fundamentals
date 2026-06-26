@@ -1,0 +1,263 @@
+/* ============================================================
+   Save Our Wildlife — Stylesheet
+   Responsive + Accessible
+   ============================================================ */
+
+/* ── Reset & tokens ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --forest:    #1a3325;
+  --canopy:    #2d5a3d;
+  --leaf:      #4a9e6b;
+  --gold:      #c8a84b;
+  --cream:     #f5f0e8;
+  --text:      #1a2010;
+  --muted:     #4a5640;
+  --white:     #ffffff;
+  --radius:    10px;
+  --transition: 0.25s ease;
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-body:    'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Base ── */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--forest);
+  color: var(--cream);
+  min-height: 100vh;
+  line-height: 1.7;
+}
+
+/* ── Skip link (accessibility) ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--gold);
+  color: var(--forest);
+  font-weight: 700;
+  padding: .5rem 1rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+  text-decoration: none;
+  z-index: 999;
+  transition: top var(--transition);
+}
+.skip-link:focus { top: 0; }
+
+/* ── Layout wrapper ── */
+.page-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+/* ── Header / Hero ── */
+.site-header {
+  text-align: center;
+  padding: 3rem 1rem 2.5rem;
+  border-bottom: 1px solid rgba(200,168,75,.25);
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.org-label {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .9rem;
+  opacity: .85;
+}
+
+/* Main heading — fulfils "Save Our Wildlife" requirement */
+.site-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.15;
+  letter-spacing: -.01em;
+}
+
+.site-title .accent {
+  color: var(--gold);
+}
+
+.tagline {
+  margin-top: .75rem;
+  color: rgba(245,240,232,.65);
+  font-size: clamp(.9rem, 2vw, 1.05rem);
+}
+
+/* ── Video section ── */
+.video-section {
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(200,168,75,.15);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 1.75rem;
+}
+
+/* Responsive video container — intrinsic 16:9 ratio */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+}
+
+.video-wrapper video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+
+/* Video hidden state */
+.video-wrapper.is-hidden {
+  display: none;
+}
+
+/* ── Controls bar ── */
+.video-controls {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .9rem 1.2rem;
+  background: rgba(0,0,0,.45);
+  border-top: 1px solid rgba(200,168,75,.1);
+  flex-wrap: wrap;
+}
+
+/* Toggle button — fulfils "hides / plays" requirement */
+.btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--gold);
+  color: var(--forest);
+  font-family: var(--font-body);
+  font-size: .9rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  padding: .55rem 1.2rem;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+  /* Accessibility: visible focus ring */
+  outline-offset: 3px;
+}
+
+.btn-toggle:hover    { background: #d4b05a; }
+.btn-toggle:active   { transform: scale(.97); }
+.btn-toggle:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.btn-toggle .icon { font-size: 1rem; }
+
+.status-text {
+  font-size: .82rem;
+  color: rgba(245,240,232,.55);
+  margin-left: auto;
+}
+
+/* ── Description card ── */
+.description-card {
+  background: var(--canopy);
+  border: 1px solid rgba(200,168,75,.15);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.description-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: .6rem;
+  font-weight: 600;
+}
+
+.description-card p {
+  color: rgba(245,240,232,.82);
+  font-size: .96rem;
+  line-height: 1.75;
+}
+
+/* ── Stats strip ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-box {
+  background: var(--canopy);
+  border: 1px solid rgba(200,168,75,.12);
+  border-radius: var(--radius);
+  padding: 1.1rem;
+  text-align: center;
+}
+
+.stat-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.1;
+}
+
+.stat-label {
+  display: block;
+  font-size: .78rem;
+  color: rgba(245,240,232,.6);
+  margin-top: .25rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+/* ── Footer ── */
+.site-footer {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(200,168,75,.15);
+  color: rgba(245,240,232,.4);
+  font-size: .8rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .page-wrapper   { padding: 1.25rem .9rem 3rem; }
+  .site-header    { padding: 2rem .5rem 1.75rem; }
+  .description-card { padding: 1.1rem 1.2rem; }
+  .video-controls { padding: .7rem .9rem; gap: .5rem; }
+  .btn-toggle     { font-size: .85rem; padding: .5rem 1rem; }
+  .status-text    { display: none; }
+}
+
+/* ── Reduced motion (accessibility) ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* ── High contrast / forced colours ── */
+@media (forced-colors: active) {
+  .btn-toggle { border: 2px solid ButtonText; }
+}
