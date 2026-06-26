@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q1 — PSNR Calculation</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <a class="back-link" href="../index.html">&#8592; Back to Index</a>
+
+    <div class="page-header">
+      <div class="badge">Question 1 &mdash; 4 Points</div>
+      <h1>PSNR Calculation</h1>
+      <p class="subtitle">Peak Signal-to-Noise Ratio for a reconstructed image</p>
+    </div>
+
+    <!-- Problem Statement -->
+    <div class="card">
+      <div class="card-label">Problem Statement</div>
+      <p>A reconstructed image has a mean squared error <strong>MSE = 100</strong> compared
+         with the original 8-bit image. What is the approximate PSNR?</p>
+      <div class="formula">PSNR = 10 × log₁₀( 255² / MSE )</div>
+    </div>
+
+    <!-- Concepts -->
+    <div class="card">
+      <div class="card-label">Key Concepts</div>
+      <ul>
+        <li><strong>MSE</strong> — Mean Squared Error: average of squared pixel-level differences between original and reconstructed image.</li>
+        <li><strong>MAX value</strong> — For an 8-bit image, the maximum pixel intensity is 255.</li>
+        <li><strong>PSNR</strong> — Higher values indicate better quality; a PSNR above ~30 dB is generally considered acceptable.</li>
+      </ul>
+    </div>
+
+    <!-- Solution -->
+    <div class="card">
+      <div class="card-label">Step-by-Step Solution</div>
+      <div class="steps">
+        <div class="step"><p>Identify the MAX value for an 8-bit image: <strong>MAX = 255</strong></p></div>
+        <div class="step"><p>Square the MAX value: <strong>255² = 65,025</strong></p></div>
+        <div class="step"><p>Divide by MSE: <strong>65,025 ÷ 100 = 650.25</strong></p></div>
+        <div class="step"><p>Apply log₁₀: <strong>log₁₀(650.25) ≈ 2.8130</strong></p></div>
+        <div class="step"><p>Multiply by 10: <strong>10 × 2.8130 = 28.13 dB</strong></p></div>
+      </div>
+      <div class="formula">PSNR = 10 × log₁₀( 65025 / 100 ) = 10 × 2.8130 ≈ 28.13 dB</div>
+      <div class="result">&#10003; PSNR ≈ 28.13 dB</div>
+    </div>
+
+    <!-- Interpretation -->
+    <div class="card">
+      <div class="card-label">Interpretation</div>
+      <table>
+        <thead><tr><th>PSNR Range</th><th>Quality</th></tr></thead>
+        <tbody>
+          <tr><td>&gt; 40 dB</td><td>Excellent — virtually indistinguishable from original</td></tr>
+          <tr><td>30 – 40 dB</td><td>Good — minor artifacts, acceptable for most uses</td></tr>
+          <tr><td class="hl">≈ 28 dB ← our result</td><td>Fair — visible distortion, adequate for some applications</td></tr>
+          <tr><td>&lt; 20 dB</td><td>Poor — significant degradation</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      Multimedia Fundamentals &mdash; Q1 PSNR &mdash;
+      <a href="../index.html" style="color:var(--accent)">Home</a>
+    </div>
+
+  </div>
+</body>
+</html>
