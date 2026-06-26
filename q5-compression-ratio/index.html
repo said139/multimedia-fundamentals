@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q5 — Compression Ratio</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <a class="back-link" href="../index.html">&#8592; Back to Index</a>
+
+    <div class="page-header">
+      <div class="badge">Question 5 &mdash; 4 Points</div>
+      <h1>Compression Ratio</h1>
+      <p class="subtitle">JPEG compression ratio for a 1920×1080 RGB image</p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Problem Statement</div>
+      <p>A raw RGB image has resolution <strong>1920 × 1080</strong>, with
+         <strong>8 bits per colour channel</strong>. It is compressed into a
+         <strong>1.2 MB JPEG</strong> file. What is the approximate compression ratio?</p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Key Concepts</div>
+      <ul>
+        <li><strong>Raw RGB</strong> — 3 channels (R, G, B), 8 bits each → 24 bits per pixel total.</li>
+        <li><strong>Compression ratio</strong> — ratio of original (uncompressed) size to compressed size.</li>
+        <li><strong>JPEG</strong> — lossy compression standard; uses DCT + quantization + Huffman coding.</li>
+        <li>1 MB = 1,048,576 bytes</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Step-by-Step Solution</div>
+      <div class="steps">
+        <div class="step"><p>Total pixels: <strong>1920 × 1080 = 2,073,600 pixels</strong></p></div>
+        <div class="step"><p>Bits per pixel (RGB, 8-bit): <strong>3 channels × 8 = 24 bits/pixel</strong></p></div>
+        <div class="step"><p>Raw size in bits: <strong>2,073,600 × 24 = 49,766,400 bits</strong></p></div>
+        <div class="step"><p>Raw size in bytes: <strong>49,766,400 ÷ 8 = 6,220,800 bytes</strong></p></div>
+        <div class="step"><p>Raw size in MB: <strong>6,220,800 ÷ 1,048,576 ≈ 5.93 MB</strong></p></div>
+        <div class="step"><p>JPEG size: <strong>1.2 MB</strong></p></div>
+        <div class="step"><p>Compression ratio: <strong>5.93 ÷ 1.2 ≈ 4.94 : 1</strong></p></div>
+      </div>
+      <div class="formula">
+        Raw size = 1920 × 1080 × 3 bytes = 6,220,800 bytes ≈ 5.93 MB
+        Ratio    = 5.93 MB ÷ 1.2 MB ≈ 4.94 : 1  (~5:1)
+      </div>
+      <div class="result">&#10003; Compression Ratio ≈ 4.94 : 1 (≈ 5 : 1)</div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Comparison Table</div>
+      <table>
+        <thead><tr><th>Format</th><th>Typical Ratio</th><th>Loss?</th></tr></thead>
+        <tbody>
+          <tr><td>BMP / Raw</td><td>1 : 1</td><td>None</td></tr>
+          <tr><td>PNG</td><td>2–3 : 1</td><td>None (lossless)</td></tr>
+          <tr><td class="hl">JPEG (this)</td><td class="hl">~5 : 1</td><td>Yes (lossy)</td></tr>
+          <tr><td>JPEG (high quality)</td><td>10–20 : 1</td><td>Yes</td></tr>
+          <tr><td>JPEG 2000</td><td>20–200 : 1</td><td>Yes</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      Multimedia Fundamentals &mdash; Q5 Compression Ratio &mdash;
+      <a href="../index.html" style="color:var(--accent)">Home</a>
+    </div>
+
+  </div>
+</body>
+</html>
