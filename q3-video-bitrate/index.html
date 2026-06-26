@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q3 — Video Bitrate</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <a class="back-link" href="../index.html">&#8592; Back to Index</a>
+
+    <div class="page-header">
+      <div class="badge">Question 3 &mdash; 4 Points</div>
+      <h1>Video Bitrate</h1>
+      <p class="subtitle">Uncompressed bitrate for a 720p HD video stream</p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Problem Statement</div>
+      <p>A video is <strong>1280 × 720</strong>, <strong>30 fps</strong>, and
+         <strong>24 bits per pixel</strong>. Estimate its uncompressed bitrate.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Key Concepts</div>
+      <ul>
+        <li><strong>Bitrate</strong> — number of bits processed per second (bps).</li>
+        <li><strong>Frame rate (fps)</strong> — how many full image frames are displayed each second.</li>
+        <li><strong>Uncompressed</strong> — no codec applied; every pixel at full colour depth every frame.</li>
+        <li>1 Mbps = 1,000,000 bps &nbsp;|&nbsp; 1 Gbps = 1,000 Mbps</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Step-by-Step Solution</div>
+      <div class="steps">
+        <div class="step"><p>Pixels per frame: <strong>1280 × 720 = 921,600 pixels</strong></p></div>
+        <div class="step"><p>Bits per frame: <strong>921,600 × 24 = 22,118,400 bits</strong></p></div>
+        <div class="step"><p>Bits per second: <strong>22,118,400 × 30 = 663,552,000 bps</strong></p></div>
+        <div class="step"><p>Convert to Mbps: <strong>663,552,000 ÷ 1,000,000 ≈ 663.55 Mbps</strong></p></div>
+      </div>
+      <div class="formula">
+        Bitrate = 1280 × 720 × 30 × 24 = 663,552,000 bps ≈ 663.55 Mbps
+      </div>
+      <div class="result">&#10003; Uncompressed Bitrate ≈ 663.55 Mbps</div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Context: Why Compression Matters</div>
+      <table>
+        <thead><tr><th>Format</th><th>Typical Bitrate</th><th>Compression vs Raw</th></tr></thead>
+        <tbody>
+          <tr><td class="hl">Uncompressed 720p (this)</td><td class="hl">~664 Mbps</td><td class="hl">1× (baseline)</td></tr>
+          <tr><td>Blu-ray (H.264)</td><td>~25 Mbps</td><td>~26× smaller</td></tr>
+          <tr><td>YouTube 720p (H.264)</td><td>~2.5 Mbps</td><td>~265× smaller</td></tr>
+          <tr><td>Netflix 720p (H.265)</td><td>~3 Mbps</td><td>~220× smaller</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      Multimedia Fundamentals &mdash; Q3 Video Bitrate &mdash;
+      <a href="../index.html" style="color:var(--accent)">Home</a>
+    </div>
+
+  </div>
+</body>
+</html>
