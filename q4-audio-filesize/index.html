@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q4 — Audio File Size</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <a class="back-link" href="../index.html">&#8592; Back to Index</a>
+
+    <div class="page-header">
+      <div class="badge">Question 4 &mdash; 4 Points</div>
+      <h1>Audio File Size</h1>
+      <p class="subtitle">Storage for a 5-second stereo PCM recording</p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Problem Statement</div>
+      <p>What is the file size of a <strong>5-second</strong> audio recording sampled at
+         <strong>22 kHz</strong>, <strong>16-bit</strong>, <strong>stereo</strong>?</p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Key Concepts</div>
+      <ul>
+        <li><strong>Sample rate (22 kHz)</strong> — 22,000 audio samples captured per second per channel.</li>
+        <li><strong>Bit depth (16-bit)</strong> — precision of each sample; 16 bits = 65,536 possible amplitude levels.</li>
+        <li><strong>Stereo</strong> — two independent channels (Left + Right), so multiply by 2.</li>
+        <li><strong>PCM</strong> — Pulse Code Modulation; the raw, uncompressed audio format (like WAV).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Step-by-Step Solution</div>
+      <div class="steps">
+        <div class="step"><p>Samples per second per channel: <strong>22,000</strong></p></div>
+        <div class="step"><p>Channels: <strong>2 (stereo)</strong></p></div>
+        <div class="step"><p>Total samples per second: <strong>22,000 × 2 = 44,000</strong></p></div>
+        <div class="step"><p>Total samples for 5 sec: <strong>44,000 × 5 = 220,000</strong></p></div>
+        <div class="step"><p>Total bits: <strong>220,000 × 16 = 3,520,000 bits</strong></p></div>
+        <div class="step"><p>Convert to bytes: <strong>3,520,000 ÷ 8 = 440,000 bytes</strong></p></div>
+        <div class="step"><p>Convert to KB: <strong>440,000 ÷ 1,024 ≈ 429.69 KB ≈ 430 KB</strong></p></div>
+      </div>
+      <div class="formula">
+        Size = 22,000 × 16 × 2 × 5 = 3,520,000 bits = 440,000 bytes ≈ 430 KB
+      </div>
+      <div class="result">&#10003; File Size ≈ 440,000 bytes (~430 KB)</div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Summary Table</div>
+      <table>
+        <thead><tr><th>Parameter</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Sample rate</td><td>22,000 Hz (22 kHz)</td></tr>
+          <tr><td>Bit depth</td><td>16 bits</td></tr>
+          <tr><td>Channels</td><td>2 (stereo)</td></tr>
+          <tr><td>Duration</td><td>5 seconds</td></tr>
+          <tr><td>Total bits</td><td>3,520,000</td></tr>
+          <tr><td>Total bytes</td><td>440,000</td></tr>
+          <tr><td class="hl">File size</td><td class="hl">~430 KB</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      Multimedia Fundamentals &mdash; Q4 Audio File Size &mdash;
+      <a href="../index.html" style="color:var(--accent)">Home</a>
+    </div>
+
+  </div>
+</body>
+</html>
