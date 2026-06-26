@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q2 — Image File Size</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <a class="back-link" href="../index.html">&#8592; Back to Index</a>
+
+    <div class="page-header">
+      <div class="badge">Question 2 &mdash; 4 Points</div>
+      <h1>Image File Size</h1>
+      <p class="subtitle">Uncompressed storage for a 512×512 RGB image</p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Problem Statement</div>
+      <p>A <strong>512 × 512 RGB</strong> image is stored <strong>uncompressed</strong> with
+         <strong>24 bits per pixel</strong>. What is the file size?</p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Key Concepts</div>
+      <ul>
+        <li><strong>24 bits/pixel (RGB)</strong> — 8 bits each for Red, Green, and Blue channels.</li>
+        <li><strong>Uncompressed</strong> — every pixel stored at full bit depth, no encoding overhead.</li>
+        <li>1 byte = 8 bits &nbsp;|&nbsp; 1 KB = 1,024 bytes &nbsp;|&nbsp; 1 MB = 1,048,576 bytes</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Step-by-Step Solution</div>
+      <div class="steps">
+        <div class="step"><p>Total pixels: <strong>512 × 512 = 262,144 pixels</strong></p></div>
+        <div class="step"><p>Total bits: <strong>262,144 × 24 = 6,291,456 bits</strong></p></div>
+        <div class="step"><p>Convert to bytes: <strong>6,291,456 ÷ 8 = 786,432 bytes</strong></p></div>
+        <div class="step"><p>Convert to KB: <strong>786,432 ÷ 1,024 = 768 KB</strong></p></div>
+        <div class="step"><p>Convert to MB: <strong>768 ÷ 1,024 = 0.75 MB</strong></p></div>
+      </div>
+      <div class="formula">
+        File size = 512 × 512 × 24 bits = 6,291,456 bits = 786,432 bytes = 768 KB = 0.75 MB
+      </div>
+      <div class="result">&#10003; File Size = 768 KB (0.75 MB)</div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Summary Table</div>
+      <table>
+        <thead><tr><th>Parameter</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Width</td><td>512 pixels</td></tr>
+          <tr><td>Height</td><td>512 pixels</td></tr>
+          <tr><td>Colour depth</td><td>24 bits/pixel (RGB)</td></tr>
+          <tr><td>Total bits</td><td>6,291,456</td></tr>
+          <tr><td>Total bytes</td><td>786,432</td></tr>
+          <tr><td class="hl">File size</td><td class="hl">768 KB / 0.75 MB</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      Multimedia Fundamentals &mdash; Q2 Image File Size &mdash;
+      <a href="../index.html" style="color:var(--accent)">Home</a>
+    </div>
+
+  </div>
+</body>
+</html>
